@@ -2,9 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact  List</title>
+    <title>Kontaktlar Ro'yxati</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.unsplash.com/photo-1587613755371-3ec4fa6f45ef') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background: #f4f4f4;
+            width: 250px;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .card img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #4a90e2;
+            margin-bottom: 10px;
+        }
+
+        .card h2 {
+            margin: 8px 0 5px;
+            font-size: 18px;
+            color: #222;
+        }
+
+        .card h3 {
+            margin: 3px 0;
+            font-size: 14px;
+            font-weight: normal;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-  <h1>Bu  Sahifa  Lilst  Papkasi</h1>
+    <div class="container">
+        <h1>📇 Kontaktlar Ro'yxati</h1>
+        <div class="card-grid">
+            {% for i in contacts %}
+                <div class="card">
+                    <img src="{{ i.image }}" alt="Rasm">
+                    <h2>{{ i.last_name }}</h2>
+                    <h3>📧 {{ i.email }}</h3>
+                    <h3>📞 {{ i.phone_number }}</h3>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>
