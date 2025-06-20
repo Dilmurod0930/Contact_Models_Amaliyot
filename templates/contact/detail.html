@@ -2,18 +2,99 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact  List</title>
+    <title>Kontakt Tafsilotlari</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url('https://images.unsplash.com/photo-1532074205216-d0e1f4b87368') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9); /* shaffof oq fon */
+            padding: 30px 40px;
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            text-align: center;
+            backdrop-filter: blur(3px);
+            animation: zoomIn 0.5s ease;
+        }
+
+        .card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #00bcd4;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.6);
+        }
+
+        .card h2 {
+            margin: 10px 0;
+            color: #2c3e50;
+            font-size: 24px;
+        }
+
+        .card h3 {
+            margin: 6px 0;
+            font-weight: normal;
+            font-size: 16px;
+            color: #444;
+        }
+
+        .card hr {
+            width: 60%;
+            margin: 20px auto;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #00bcd4;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #0097a7;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Bu  Sahifa  Lilst  Papkasi</h1>
-
-        <img src="{{ i.image }}" >
-        <h2>{{i.last_name}}</h2>
-        <h3>{{i.email}}</h3>
-        <h3>{{i.phone_number}}</h3>
+    <div class="card">
+        <img src="{{ contact.image }}" alt="Rasm">
+        <h2>{{ contact.last_name }} {{ contact.first_name }}</h2>
+        <h3>📧 {{ contact.email }}</h3>
+        <h3>📞 {{ contact.phone_number }}</h3>
         <hr>
+        <h3>🗂️ Batafsil ma'lumotlar</h3>
+        <a href="{% url 'contact_list' %}" class="btn">⬅️ Orqaga</a>
+    </div>
 </body>
 </html>
-
-
-chiroyli qilib  orqa fonga  rasmlar  qo'yin  yozib  ber
